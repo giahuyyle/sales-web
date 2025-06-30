@@ -11,7 +11,7 @@ const Homepage = ({ onAddToCart }) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-20">
+      <div className="bg-gradient-to-r from-gray-500 to-gray-300 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Fresh Homemade Yogurt
@@ -20,7 +20,7 @@ const Homepage = ({ onAddToCart }) => {
             Made with love, tradition, and the finest ingredients
           </p>
           <NavLink
-            className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            className="bg-white text-gray-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
             key="/products"
             to="/products"
           >
