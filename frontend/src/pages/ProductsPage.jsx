@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/product/ProductCard";
 import { getProducts } from "../data/getData";
 import { sortProducts, filterProducts } from "../utils/helpers";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 
 const ProductsPage = ({ onAddToCart }) => {
   const [products, setProducts] = useState([]);
@@ -31,7 +32,11 @@ const ProductsPage = ({ onAddToCart }) => {
   const sortedProducts = sortProducts(filteredProducts, sortBy);
 
   if (loading) {
-    return <div className="min-h-screen py-8">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <LoadingSpinner size="lg" showText={true} />
+      </div>
+    );
   }
 
   return (

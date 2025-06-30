@@ -32,7 +32,7 @@ const Header = ({ cartItemsCount, isMobileMenuOpen, setIsMobileMenuOpen }) => {
                     `px-3 py-2 rounded-md text-sm font-medium transition-colors relative ${
                       isActive
                         ? "text-black-600 bg-gray-100"
-                        : "text-gray-500 hover:text-black-600"
+                        : "text-gray-400 hover:text-gray-600"
                     }`
                   }
                 >
@@ -49,12 +49,12 @@ const Header = ({ cartItemsCount, isMobileMenuOpen, setIsMobileMenuOpen }) => {
 
           {/* Right side icons */}
           <div className="flex items-center space-x-4">
-            <Search className="h-5 w-5 text-gray-600 cursor-pointer hover:text-purple-600" />
-            <User className="h-5 w-5 text-gray-600 cursor-pointer hover:text-purple-600" />
+            <Search className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" />
+            <User className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" />
             <div className="relative cursor-pointer">
               <NavLink
                 to="/cart"
-                className="h-5 w-5 text-gray-600 hover:text-purple-600"
+                className="h-5 w-5 text-gray-400 hover:text-gray-600"
               >
                 <ShoppingCart />
               </NavLink>
