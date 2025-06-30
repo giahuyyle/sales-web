@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "../components/product/ProductCard";
-import { mockProducts } from "../data/mockData";
+import { getProducts } from "../data/getData";
 import { sortProducts, filterProducts } from "../utils/helpers";
 
 const ProductsPage = ({ onAddToCart }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState("name");
   const [showAvailable, setShowAvailable] = useState(true);
   const [showOutOfStock, setShowOutOfStock] = useState(true);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(20);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
   const filters = { showAvailable, showOutOfStock, minPrice, maxPrice };
-  const filteredProducts = filterProducts(mockProducts, filters);
+  const filteredProducts = filterProducts(products, filters);
   const sortedProducts = sortProducts(filteredProducts, sortBy);
+
+  if (loading) {
+    return <div className="min-h-screen py-8">Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen py-8">
