@@ -6,6 +6,7 @@ import ProductsPage from "./pages/ProductsPage";
 import Homepage from "./pages/Homepage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from './pages/CartPage';
+import NotFound from './pages/NotFound';
 import { useCart } from "./hooks/useCart";
 
 // Mock data
@@ -122,6 +123,10 @@ return (
                     cartTotal={getCartTotal()}
                   />
                 } 
+              />
+              <Route 
+                path="*"
+                element=<NotFound />
               />
             </Routes>
           </main>
